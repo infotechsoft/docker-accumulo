@@ -44,4 +44,4 @@ Additionally the `ACCUMULO_MEM_USAGE` environment variable is used for bootstrap
 
 ## Dependencies
 
-Accumulo requires running HDFS and Zookeeper instances. HDFS can be configured by following the documentation at (uhopper/hadoop)[https://hub.docker.com/r/uhopper/hadoop/], and Zookeeper using the official (zookeeper)[https://hub.docker.com/_/zookeeper/] image.
+Accumulo requires running HDFS and Zookeeper instances. HDFS can be configured by following the documentation at [uhopper/hadoop](https://hub.docker.com/r/uhopper/hadoop/), and Zookeeper using the official [zookeeper](https://hub.docker.com/_/zookeeper/) image.

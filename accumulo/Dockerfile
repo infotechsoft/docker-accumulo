@@ -20,7 +20,7 @@ RUN gpg --keyserver pgpkeys.mit.edu --recv-keys \
     ADAFD097 \
     B5E9BD2D
 
-ENV ACCUMULO_VERSION 1.8.0
+ENV ACCUMULO_VERSION 1.8.1
 ENV ACCUMULO_URL https://www.apache.org/dist/accumulo/$ACCUMULO_VERSION/accumulo-$ACCUMULO_VERSION-bin.tar.gz
 
 RUN set -x \
@@ -31,7 +31,7 @@ RUN set -x \
     && rm /tmp/accumulo.tar.gz* \
     && ln -s /opt/accumulo-$ACCUMULO_VERSION /opt/accumulo
 
-ENV ZOOKEEPER_VERSION 3.4.9
+ENV ZOOKEEPER_VERSION 3.4.10
 ENV ZOOKEEPER_URL http://apache.org/dist/zookeeper/zookeeper-$ZOOKEEPER_VERSION/zookeeper-$ZOOKEEPER_VERSION.tar.gz
 
 RUN set -x \

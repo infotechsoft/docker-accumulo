@@ -1,4 +1,4 @@
-FROM uhopper/hadoop:2.7.2
+FROM uhopper/hadoop:2.8.1
 
 RUN gpg --keyserver pgpkeys.mit.edu --recv-keys \
     2BFF0BA7 \

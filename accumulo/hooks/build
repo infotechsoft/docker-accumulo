@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $SOURCE_BRANCH != "master" ]; then
+    HADOOP_VERSION=$(echo $SOURCE_BRANCH | cut -d '-' -f 1)
+    ACCUMULO_VERSION=$(echo $SOURCE_BRANCH | cut -d '-' -f 2)
+else
+    HADOOP_VERSION=2.8.1
+    ACCUMULO_VERSION=1.8.1
+fi
+
+
+docker build \
+    --build-arg HADOOP_VERSION=$HADOOP_VERSION \
+    --build-arg ACCUMULO_VERSION=$ACCUMULO_VERSION \
+    -t $IMAGE_NAME . 

@@ -1,4 +1,6 @@
-FROM infotechsoft/accumulo:2.8.1-1.8.1
+ARG HADOOP_VERSION
+ARG ACCUMULO_VERSION
+FROM infotechsoft/accumulo:${HADOOP_VERSION}-${ACCUMULO_VERSION}
 
 EXPOSE 9995
 

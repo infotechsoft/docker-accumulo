@@ -18,10 +18,12 @@ if [ -z ${ACCUMULO_VERSION+x} ]; then
     exit 1
 fi
 
+ACCUMULO_TAG=$HADOOP_VERSION-$ACCUMULO_VERSION
+
 for i in accumulo accumulo-gc accumulo-master accumulo-monitor accumulo-tserver; do
     echo Building $i
-    ( cd $i && \
-      docker build --build-arg HADOOP_VERSION=$HADOOP_VERSION \
+    ( cd $i && docker build --build-arg HADOOP_VERSION=$HADOOP_VERSION \
         --build-arg ACCUMULO_VERSION=$ACCUMULO_VERSION \
-        -t infotechsoft/$i:$HADOOP_VERSION-$ACCUMULO_VERSION . )
+        --build-arg ACCUMULO_TAG=$ACCUMULO_TAG \
+        -t infotechsoft/$i:$ACCUMULO_TAG . )
 done

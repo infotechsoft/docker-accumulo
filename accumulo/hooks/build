@@ -4,12 +4,17 @@ if [ $SOURCE_BRANCH != "master" ]; then
     HADOOP_VERSION=$(echo $SOURCE_BRANCH | cut -d '-' -f 1)
     ACCUMULO_VERSION=$(echo $SOURCE_BRANCH | cut -d '-' -f 2)
 else
-    HADOOP_VERSION=2.8.1
-    ACCUMULO_VERSION=1.8.1
+    HADOOP_VERSION=2.9.1
+    ACCUMULO_VERSION=1.9.1
 fi
 
+echo "Building $IMAGE_NAME with Accumulo v$ACCUMULO_VERSION..."
+
+# CACHE_TAG is often emtpy for triggered build, so parse from IMAGE_NAME
+ACCUMULO_TAG=$(echo $IMAGE_NAME | cut -d ':' -f 2)
 
 docker build \
     --build-arg HADOOP_VERSION=$HADOOP_VERSION \
     --build-arg ACCUMULO_VERSION=$ACCUMULO_VERSION \
+    --build-arg ACCUMULO_TAG=$ACCUMULO_TAG \
     -t $IMAGE_NAME . 

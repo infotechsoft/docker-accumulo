@@ -6,7 +6,7 @@ export ACCUMULO_CONF_instance_zookeeper_host=${ACCUMULO_CONF_instance_zookeeper_
 
 source /functions.sh
 
-$ACCUMULO_HOME/bin/bootstrap_config.sh -s $ACCUMULO_MEM_USAGE -j -v 2
+$ACCUMULO_HOME/bin/bootstrap_config.sh -o -s $ACCUMULO_MEM_USAGE -j -v 2
 
 configure /opt/accumulo/conf/accumulo-site.xml accumulo ACCUMULO_CONF
 
